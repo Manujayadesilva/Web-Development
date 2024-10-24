@@ -1,0 +1,59 @@
+body
+ {
+  font-family: Arial, ;
+  background-image: url('img6.jpg');
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+
+.login-container
+ {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 50px;
+  border-radius: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.input-group 
+{
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="password"] 
+{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  
+}
+
+.message {
+  margin-top: 10px;
+  text-align: center;
+  color: red;
+}
+@media (min-width: 1024px) {
+  body {
+    background-size: cover; /* Adjust the background size */
+  }

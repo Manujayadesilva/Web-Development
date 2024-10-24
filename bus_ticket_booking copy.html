@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Tickets Booking</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .bus-icon {
+            width: 50px; 
+            height: 50px; 
+            margin-right: 10px;
+        }
+        .travelling-aid {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar navbar-dark bg-dark">
+        <div class="container">
+             <img src="bus icon.webp" alt="Bus Icon" class="bus-icon">
+             <span class="text-white travelling-aid">Travelling Aid</span>
+             <h1 class="text-white">(Busses Connecting Throughout Sri Lanka)</h1>
+        </div>
+    </header>
+
+    <div class="container mt-4">
+        <form>
+            <div class="form-group">
+                <label for="busType">Bus Type</label>
+                <select class="form-control" id="busType">
+                    <option value="highway">Highway</option>
+                    <option value="AC">A/C</option>
+                    <option value="normal">Normal</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="departingFrom">Departing From</label>
+                <select class="form-control" id="departingFrom">
+                    <option value="Galle">Galle</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Kalutara">Kalutara</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="departingTime">Departing Time</label>
+                <input type="text" class="form-control" id="departingTime" placeholder="e.g., 6:00 AM">
+                <button type="button" class="btn btn-info mt-2" onclick="checkTimetable()">Check Timetable</button>
+            </div>
+            <div class="form-group">
+                <label for="arrivingAt">Arriving At</label>
+                <select class="form-control" id="arrivingAt">
+                    <option value="Galle">Galle</option>
+                    <option value="Colombo">Colombo</option>
+                    <option value="Kandy">Kandy</option>
+                    <option value="Jaffna">Jaffna</option>
+                    <option value="Matara">Matara</option>
+                    <option value="Kalutara">Kalutara</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-primary mb-3">Search Price</button>
+            
+            <div class="form-group">
+                <label for="ticketPrice">Price for the ticket</label>
+                <input type="text" class="form-control" id="ticketPrice" readonly>
+            </div>
+            
+            <div class="form-group">
+                <label>Do you want to reserve Tickets?</label><br>
+                <button type="button" class="btn btn-secondary mr-2">Exit</button>
+                <button type="button" class="btn btn-success"  onclick="redirectToBookingPage()">Book Tickets</button>
+                <button type="button" class="btn btn-info" onclick="goBack()">Back</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function redirectToBookingPage() {
+            window.location.href = "booking_webpage.php";
+        }
+
+        function goBack() {
+            window.location.href = "home2.html";
+        }
+
+        function checkTimetable() {
+            window.location.href = "timetable.html";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.querySelector('.btn-primary').addEventListener('click', function() {
+            var departure = document.getElementById('departingFrom').value;
+            var arrival = document.getElementById('arrivingAt').value;
+            var ticketPrice = calculateTicketPrice(departure, arrival);
+            document.getElementById('ticketPrice').value = ticketPrice;
+        });
+
+        function calculateTicketPrice(departure, arrival) {
+            
+            return "$50"; 
+        }
+    </script>
+</body>
+</html>
